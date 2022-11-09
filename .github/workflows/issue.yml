@@ -1,0 +1,17 @@
+name: Adds all issues that include the 'bug'labels to project board
+
+on:
+  issues:
+    types:
+      - opened
+
+jobs:
+  add-to-project:
+    name: Add issue to project
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/add-to-project@RELEASE_VERSION
+        with:
+          project-url: https://github.com/orgs/ECS-Data-Solutions/projects/5/views/1
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          labeled: bug
